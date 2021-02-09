@@ -69,6 +69,7 @@ while 1:
     rate2 = s.send(rate2)
 
 print("Dies ist ein Test")
+print("Und noch einer")
     
 
 
