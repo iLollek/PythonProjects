@@ -68,6 +68,7 @@ while 1:
     rate2 = rate2.encode()
     rate2 = s.send(rate2)
 
+print("Dies ist ein Test")
     
 
 
