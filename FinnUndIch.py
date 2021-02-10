@@ -8,6 +8,12 @@ from colored import fg, bg, attr
 
 name = "Tamara-PC"
 
+black = fg('#000000')
+red = fg('#ff0000') 
+white = fg('#ffffff')
+green = fg('#63ff00')
+res = attr('reset')
+
 
 s = socket.socket()
 host = socket.gethostname()
@@ -22,8 +28,31 @@ print("Sie spielen jetzt das Zahlen erraten Spiel")
 
 zahl1 = s.recv(1024)
 zahl1 = zahl1.decode()
+print(red + "Empfange Zahl, bitte warten..." + res)
+print(green + "Zahl erfolgreich Empfangen!" + res)
+print("Warte auf Eingabe von Spieler 1...")
+print("")
+usr = s.recv(1024)
+usr = usr.decode()
+print(green + "Nutzer erfolgreich Registiert: ", usr , " --SPIELER 1")
 
-print("Bitte erraten sie die Zahl, sie sind Spieler 2")
+
+
+
+
+usr2 = input(str("Spieler 2, bitte geben sie ihren Nutzernamen ein>>>"))
+print(green + "Nutzer erfolgreich Registiert: ", usr2 , + res + " --SPIELER 2")
+usr2 = usr2.encode()
+usr = s.send(usr2)
+
+print("Zahlen Erraten (Version 1.0)")
+print("")
+print("Spieler 1: ",usr)
+print("")
+print("Spieler 2: ",usr2)
+
+
+
 print(zahl1)
 while 1:
     rate1 = s.recv(1024)
